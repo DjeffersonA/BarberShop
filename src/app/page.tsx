@@ -2,8 +2,19 @@
 import { useEffect, useState } from "react";
 import { getBarbers } from "@/lib/database";
 
+type User = {
+  id: string;
+  email: string;
+  password: string;
+  name: string;
+  phone?: string;
+  role: "barber" | "customer";
+  photo?: string;
+  created_at: string;
+};
+
 export default function Home(){
-  const [barbers, setBarbers] = useState<any[]>([]);
+  const [barbers, setBarbers] = useState<User[]>([]);
 
   useEffect(() => {
     const fetchBarbers = async () => {
