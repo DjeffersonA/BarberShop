@@ -1,6 +1,8 @@
 "use client";
 import { useEffect, useState } from "react";
 import { getBarbers } from "@/lib/database";
+import Header from "@/components/Header/Header";
+import Footer from "@/components/Footer/Footer";
 
 type User = {
   id: string;
@@ -29,6 +31,8 @@ export default function Home(){
   }, []);
 
   return(
+    <>
+    <Header/>
     <div className="p-4">
       <h1 className="text-xl font-bold">Available Barbers</h1>
       <ul>
@@ -39,5 +43,7 @@ export default function Home(){
         )}
       </ul>
     </div>
+    <Footer/>
+    </>
   );
 }
